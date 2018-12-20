@@ -4,6 +4,11 @@ const MessageResponse = require('twilio').twiml.MessagingResponse
 
 const app = express();
 
+app.get('/ping', (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/html' })
+  res.end('Pong')
+})
+
 app.post('/sms', (req, res) => {
   const twiml = new MessageResponse()
 
