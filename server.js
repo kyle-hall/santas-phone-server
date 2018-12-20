@@ -2,6 +2,8 @@
 const express = require('express')
 const MessageResponse = require('twilio').twiml.MessagingResponse
 
+const port = process.env.PORT || 80
+
 const app = express();
 
 app.get('/ping', (req, res) => {
@@ -18,6 +20,6 @@ app.post('/sms', (req, res) => {
   res.end(twiml.toString())
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('> Listening for messages on port 3000...')
 })
